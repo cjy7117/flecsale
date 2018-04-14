@@ -43,16 +43,16 @@ after_success:
   - ./install_on_travis.sh
   - export PATH=$(pwd)/bee-launcher:$PATH
   - export PATH=$(pwd)/travis_ci:$PATH
-  - ls ${HOME}/${TRAVIS_REPO_SLUG}/bee_scalability_test
-  - export PATH=${HOME}/${TRAVIS_REPO_SLUG}/bee_scalability_test:$PATH
+  - ls ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
+  - export PATH=${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test:$PATH
   - echo $PATH
   
-  - cd ${HOME}/${TRAVIS_REPO_SLUG}/bee_scalability_test
+  - cd ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
   - travis_wait 120 bee_ci_launcher.py -l flecsale -r $OS_RESERVATION_ID
   - ls
   - output_parser.py
   - cp bee_scalability_test_parsed.output bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
-  - mv bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv ${HOME}/${TRAVIS_REPO_SLUG}/bee_scalability_test
+  - mv bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
   - push_results_to_repo.sh
 
 compiler:
