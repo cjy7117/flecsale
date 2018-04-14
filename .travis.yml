@@ -22,7 +22,7 @@ script:
   - cp -vr docker ${HOME}/docker
   - sed -i "1s/fedora_serial/${DISTRO}${TAG}/" ${HOME}/docker/Dockerfile
   - cd ../../
-  - mv -v ${TRAVIS_REPO_SLUG} $HOME/docker
+  - cp -r ${TRAVIS_REPO_SLUG} $HOME/docker
 #  - docker build --build-arg BUILD_TYPE=${BUILD_TYPE} 
 #                --build-arg CC=${CC} --build-arg CXX=${CXX}
 #                --build-arg CI=${CI} --build-arg TRAVIS=${TRAVIS} --build-arg TRAVIS_OS_NAME=${DISTRO}
