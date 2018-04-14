@@ -62,7 +62,7 @@
     ]
   }, 
   "docker_conf":{
-      "docker_img_tag": "cjy7117/flecsale2",
+      "docker_img_tag": "cjy7117/flecsale:ubuntu_mpi_master",
       "docker_username": "flecsi",
       "docker_shared_dir": "/mnt/docker_share"
   },
