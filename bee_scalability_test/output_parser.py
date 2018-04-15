@@ -1,8 +1,7 @@
 #!/usr/bin/python
 import getpass
 print(getpass.getuser())
-print(getpass.getuser())
-print(getpass.getuser())
+
 
 import glob
 output_file = open('bee_scalability_test_parsed.output','w')
