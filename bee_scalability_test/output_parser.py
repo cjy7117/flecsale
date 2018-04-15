@@ -8,7 +8,7 @@ output_file = open('bee_scalability_test_parsed.output','w')
 output_file.write("Num. of nodes, Proc. per node, Execution time\n")
 path = "bee_scalability_test_*_.output"
 
-for filename in glob.glob(path):
+for filename in sorted(glob.glob(path)):
     parsed_filename = filename.split("_")
     num_of_node = parsed_filename[len(parsed_filename)-3]
     proc_per_node = parsed_filename[len(parsed_filename)-2]
