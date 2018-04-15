@@ -52,6 +52,7 @@ COPY config /home/flecsi/.ssh/
 RUN chmod 0700 /home/flecsi/.ssh; chmod 0600 /home/flecsi/.ssh/*
 RUN cat /home/flecsi/.ssh/id_rsa.pub >> /home/flecsi/.ssh/authorized_keys
 RUN sed -i 's/#Port 22/Port 9222/' /etc/ssh/sshd_config
+RUN sed -i 's/Port 22/Port 9222/' /etc/ssh/sshd_config
 RUN chown -R flecsi:flecsi /home/flecsi/.ssh
 RUN (echo "LD_LIBRARY_PATH=/usr/local/lib"; echo "") >> /etc/environment
 
