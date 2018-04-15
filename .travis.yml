@@ -44,6 +44,7 @@ after_success:
   - git checkout jieyang-dev
   - ./install_on_travis.sh
   - source ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/CH-819321-openrc.sh
+  - env
   - export PATH=$(pwd)/bee-launcher:$PATH
   - export PATH=$(pwd)/travis_ci:$PATH
   - export PATH=${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test:$PATH
