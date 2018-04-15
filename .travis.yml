@@ -43,13 +43,9 @@ after_success:
   - git clone https://${GH_TOKEN}@github.com/lanl/BEE_Private.git && cd ./BEE_Private
   - git checkout jieyang-dev
   - ./install_on_travis.sh
+  - source ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/CH-819321-openrc.sh
   - export PATH=$(pwd)/bee-launcher:$PATH
   - export PATH=$(pwd)/travis_ci:$PATH
-  - ls ${HOME}
-  - ls ${HOME}/build
-  - ls ${HOME}/build/cjy7117
-  - ls ${HOME}/build/${TRAVIS_REPO_SLUG}
-  - ls ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
   - export PATH=${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test:$PATH
   - echo $PATH
   
