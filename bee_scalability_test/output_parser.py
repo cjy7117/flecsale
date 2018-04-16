@@ -5,7 +5,7 @@ print(getpass.getuser())
 
 import glob
 output_file = open('bee_scalability_test_parsed.output','w')
-output_file.write("Num. of nodes, Proc. per node, Execution time\n")
+output_file.write("Number of nodes, Process per node, Execution time(s)\n")
 path = "bee_scalability_test_*_.output"
 
 for filename in sorted(glob.glob(path)):
