@@ -52,6 +52,12 @@ ssh-keygen -t rsa -f /home/flecsi/.ssh/id_rsa -q -P ""
 # Add authorized_keys
 cat /home/flecsi/.ssh/id_rsa.pub >> /home/flecsi/.ssh/authorized_keys
 
+# Setup SSH config
+echo "Host *" >> /home/flecsi/.ssh/config
+echo "     Port 9222" >> /home/flecsi/.ssh/config
+echo "     StrictHostKeyChecking no" >> /home/flecsi/.ssh/config
+echo "     UserKnownHostsFile=/dev/null" >> /home/flecsi/.ssh/config
+
 COPY config /home/flecsi/.ssh/
 RUN chmod 0700 /home/flecsi/.ssh; chmod 0600 /home/flecsi/.ssh/*
 RUN sed -i 's/#Port 22/Port 9222/' /etc/ssh/sshd_config
