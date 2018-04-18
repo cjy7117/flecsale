@@ -46,11 +46,14 @@ RUN mkdir /var/run/sshd
 RUN sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' /etc/pam.d/sshd
 
 RUN mkdir /home/flecsi/.ssh/
-COPY id_rsa /home/flecsi/.ssh/
-COPY id_rsa.pub /home/flecsi/.ssh/
+# Create SSH Key
+ssh-keygen -t rsa -f /home/flecsi/.ssh/id_rsa -q -P ""
+
+# Add authorized_keys
+cat /home/flecsi/.ssh/id_rsa.pub >> /home/flecsi/.ssh/authorized_keys
+
 COPY config /home/flecsi/.ssh/
 RUN chmod 0700 /home/flecsi/.ssh; chmod 0600 /home/flecsi/.ssh/*
-RUN cat /home/flecsi/.ssh/id_rsa.pub >> /home/flecsi/.ssh/authorized_keys
 RUN sed -i 's/#Port 22/Port 9222/' /etc/ssh/sshd_config
 RUN sed -i 's/Port 22/Port 9222/' /etc/ssh/sshd_config
 RUN chown -R flecsi:flecsi /home/flecsi/.ssh
