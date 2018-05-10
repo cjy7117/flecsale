@@ -58,12 +58,12 @@ RUN echo "     Port 9222" >> /home/flecsi/.ssh/config
 RUN echo "     StrictHostKeyChecking no" >> /home/flecsi/.ssh/config
 RUN echo "     UserKnownHostsFile=/dev/null" >> /home/flecsi/.ssh/config
 
-COPY config /home/flecsi/.ssh/
+#COPY config /home/flecsi/.ssh/
 RUN chmod 0700 /home/flecsi/.ssh; chmod 0600 /home/flecsi/.ssh/*
 RUN sed -i 's/#Port 22/Port 9222/' /etc/ssh/sshd_config
 RUN sed -i 's/Port 22/Port 9222/' /etc/ssh/sshd_config
 RUN chown -R flecsi:flecsi /home/flecsi/.ssh
-RUN (echo "LD_LIBRARY_PATH=/usr/local/lib"; echo "") >> /etc/environment
+#RUN (echo "LD_LIBRARY_PATH=/usr/local/lib"; echo "") >> /etc/environment
 
 RUN mkdir /mnt/docker_share
 RUN chown -R flecsi:flecsi /mnt
