@@ -47,16 +47,16 @@ RUN sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_login
 
 RUN mkdir /home/flecsi/.ssh/
 # Create SSH Key
-ssh-keygen -t rsa -f /home/flecsi/.ssh/id_rsa -q -P ""
+RUN ssh-keygen -t rsa -f /home/flecsi/.ssh/id_rsa -q -P ""
 
 # Add authorized_keys
-cat /home/flecsi/.ssh/id_rsa.pub >> /home/flecsi/.ssh/authorized_keys
+RUN cat /home/flecsi/.ssh/id_rsa.pub >> /home/flecsi/.ssh/authorized_keys
 
 # Setup SSH config
-echo "Host *" >> /home/flecsi/.ssh/config
-echo "     Port 9222" >> /home/flecsi/.ssh/config
-echo "     StrictHostKeyChecking no" >> /home/flecsi/.ssh/config
-echo "     UserKnownHostsFile=/dev/null" >> /home/flecsi/.ssh/config
+RUN echo "Host *" >> /home/flecsi/.ssh/config
+RUN echo "     Port 9222" >> /home/flecsi/.ssh/config
+RUN echo "     StrictHostKeyChecking no" >> /home/flecsi/.ssh/config
+RUN echo "     UserKnownHostsFile=/dev/null" >> /home/flecsi/.ssh/config
 
 COPY config /home/flecsi/.ssh/
 RUN chmod 0700 /home/flecsi/.ssh; chmod 0600 /home/flecsi/.ssh/*
