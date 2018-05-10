@@ -58,57 +58,7 @@
           "remote_port_fwd": [],
           "num_of_nodes": "1",
           "proc_per_node": "64"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "1"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "2"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "4"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "8"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "16"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "32"
-       },
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "64"
        }
-
     ]
   }, 
   "docker_conf":{
@@ -118,7 +68,7 @@
   },
   "exec_env_conf": {
      "bee_os": {
-          "num_of_nodes": "2",
+          "num_of_nodes": "1",
           "reservation_id": "ddf31d80-a961-4126-8ffe-311c74247721"
       }
   }
