@@ -15,7 +15,7 @@
           "local_port_fwd": [],
           "remote_port_fwd": [],
           "num_of_nodes": "1",
-          "proc_per_node": "1"
+          "proc_per_node": "2"
        }
     ]
   }, 
