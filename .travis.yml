@@ -41,7 +41,7 @@ after_success:
     
   - cd ${HOME}
   - git clone https://${GH_TOKEN}@github.com/lanl/BEE_Private.git && cd ./BEE_Private
-  - git checkout jieyang-dev
+  - git checkout beeswarm-enhancement
   - ./install_on_travis.sh
   - source ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/CH-819321-openrc.sh
   - env
