@@ -15,7 +15,7 @@ export OS_AUTH_URL=https://chi.uc.chameleoncloud.org:5000/v2.0
 
 # With the addition of Keystone we have standardized on the term **tenant**
 # as the entity that owns the resources.
-export OS_TENANT_ID=3dbec77dc346466380d53adf7d39753b
+export OS_TENANT_ID=3e35a9401df74141b2e909ef1f28aef7
 export OS_TENANT_NAME="CH-819321"
 
 # unsetting v3 items in case set
