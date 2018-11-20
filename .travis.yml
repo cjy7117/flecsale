@@ -38,7 +38,6 @@ after_success:
  #     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
  #     docker push "${TRAVIS_REPO_SLUG}:${DISTRO}${TAG}";
  #   fi
-    
   - cd ${HOME}
   - git clone https://${GH_TOKEN}@github.com/lanl/BEE_Private.git && cd ./BEE_Private
   - git checkout beeswarm-enhancement
