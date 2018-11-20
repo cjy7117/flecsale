@@ -3,21 +3,20 @@
       "task_name": "flecsale",
       "exec_target": "bee_os",
       "general_run": [
-	  {
-	      "script": "flecsale_run.sh",
-	      "local_port_fwd": [],
-	      "remote_port_fwd": []
-	  }
+	      {
+	        "script": "flecsale_run.sh",
+	        "local_port_fwd": [],
+	        "remote_port_fwd": []
+	      }
       ],
-     "mpi_run": [
-       {
-          "script": "flecsale_run.sh",
-          "local_port_fwd": [],
-          "remote_port_fwd": [],
-          "num_of_nodes": "2",
-          "proc_per_node": "16"
-       }
-    ]
+      "scalability_run": {
+        "mode": "linear",
+        "node_range": [1,2],
+        "proc_range": [1,16],
+        "script": "flecsale_run.sh",
+        "local_port_fwd": [],
+        "remote_port_fwd": []
+      }
   }, 
   "docker_conf":{
       "docker_img_tag": "cjy7117/flecsale:ubuntu_mpi_master",
@@ -27,7 +26,8 @@
   "exec_env_conf": {
      "bee_os": {
           "num_of_nodes": "2",
-          "reservation_id": "ddf31d80-a961-4126-8ffe-311c74247721"
+          "reservation_id": "bcd0a6d4-cc8b-4a92-8240-b60f9e45449f"
       }
   }
 }
+
