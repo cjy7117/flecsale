@@ -38,25 +38,35 @@ after_success:
  #     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
  #     docker push "${TRAVIS_REPO_SLUG}:${DISTRO}${TAG}";
  #   fi
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "Travis CI"
+  - git checkout ${TRAVIS_BRANCH}
+  
+  
+  
   - cd ${HOME}
   - git clone https://${GH_TOKEN}@github.com/lanl/BEE_Private.git && cd ./BEE_Private
   - git checkout beeswarm-enhancement
   - ./install_on_travis.sh
-  - source ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/CH-819321-openrc.sh
-  - env
+  #- source ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/CH-819321-openrc.sh
+  #- env
   - export PATH=$(pwd)/bee-launcher:$PATH
-  - export PATH=$(pwd)/travis_ci:$PATH
+  #- export PATH=$(pwd)/travis_ci:$PATH
   - export PATH=${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test:$PATH
-  - echo $PATH
+  #- echo $PATH
   
   - cd ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
   - travis_wait 120 bee_ci_launcher.py -l flecsale -r $OS_RESERVATION_ID
-  - ls
+  #- ls
   - output_parser.py
-  - cp bee_scalability_test_parsed.output bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
-  - mv bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
-  - push_results_to_repo.sh
-
+  - cp bee_scalability_test_parsed.output ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
+  #- mv bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
+  #- push_results_to_repo.sh
+  - git add bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
+  - git commit --message "Travis build: ${TRAVIS_BUILD_NUMBER} [skip ci]"
+  - git remote add remote_repo https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+  - git push --quiet --set-upstream remote_repo ${TRAVIS_BRANCH} 
+  
 compiler:
   - gcc
 
