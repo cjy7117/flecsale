@@ -56,10 +56,12 @@ after_success:
   #- echo $PATH
   
   - cd ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
-  - travis_wait 120 bee_ci_launcher.py -l flecsale -r $OS_RESERVATION_ID
+  #- travis_wait 120 bee_ci_launcher.py -l flecsale -r $OS_RESERVATION_ID
   #- ls
-  - output_parser.py
-  - cp bee_scalability_test_parsed.output ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
+  #- output_parser.py
+  
+  #- cp bee_scalability_test_parsed.output ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
+  - touch ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
   #- mv bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
   #- push_results_to_repo.sh
   - git add bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
