@@ -61,7 +61,7 @@ after_success:
   - output_parser.py
   
   # Rename and copy result file
-  - mv bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test
+  - mv bee_scalability_test_parsed.output ${HOME}/build/${TRAVIS_REPO_SLUG}/bee_scalability_test/bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
   
   # Push results back to repo
   - git add bee_scalability_test_result_build_${TRAVIS_BUILD_NUMBER}.csv
