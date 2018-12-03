@@ -10,7 +10,7 @@
 	      }
       ],
       "scalability_run": {
-        "mode": "linear",
+        "mode": "exp2",
         "node_range": [1,2],
         "proc_range": [1,16],
         "script": "flecsale_run.sh",
